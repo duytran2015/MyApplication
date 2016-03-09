@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp" >
 
     <ImageView
+        android:layout_weight="1"
         android:id="@+id/moviePosterImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:maxHeight="70dp"
+        android:maxHeight="120dp"
+        android:maxWidth="80dp"
         android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:src="@drawable/small_movie_poster" />
+        android:adjustViewBounds="true" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_toRightOf="@+id/moviePosterImage"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_weight="1.5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp" >
 
         <TextView
             android:id="@+id/movieTitle"
@@ -28,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:textStyle="bold"
-            android:hint="The Dark Knight"
             android:textSize="12sp" />
 
         <TextView
@@ -36,29 +36,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/movieTitle"
-            android:layout_below="@+id/movieTitle"
-            android:hint="91%"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/movieStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/movieVoteAverage"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/movieReleaseDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/movieStatus"
             android:maxLines="1"
             android:ellipsize="end"
             android:textSize="12sp" />
 
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/watchTrailerButton"
+            android:text="Watch Trailer"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_below="@+id/watchTrailerButton"
+            android:id="@+id/addMovieButton"
+            android:text="Add Movie"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:onClick="onAddEventClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
